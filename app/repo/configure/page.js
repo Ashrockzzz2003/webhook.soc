@@ -1,11 +1,11 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import reposData from "../../_util/data/repos.json";
 
-export default function ConfigureWebhooks() {
+function ConfigureWebhooksContent() {
   const { data: session } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -209,5 +209,19 @@ export default function ConfigureWebhooks() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ConfigureWebhooks() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black">
+          <p className="text-white text-center text-lg">Loading...</p>
+        </div>
+      }
+    >
+      <ConfigureWebhooksContent />
+    </Suspense>
   );
 }
