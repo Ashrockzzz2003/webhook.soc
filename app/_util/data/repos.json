@@ -1,0 +1,454 @@
+{
+  "message": "Projects retrived successfully",
+  "projects": [
+    {
+      "id": "c19e8d38-e32b-415a-93df-39234dd2053a",
+      "name": "Placement Tracker Web App",
+      "description": "Web App for tracking the placement activities of the students of Amrita School of Computing, Coimbatore.",
+      "url": "https://github.com/Ashrockzzz2003/placement_tracker_web",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Next", "JavaScript", "TailwindCSS", "Chartjs"],
+      "is_internal": true
+    },
+    {
+      "id": "964bbf3d-7c9b-4366-88d8-6feb6e848ae6",
+      "name": "Placement Tracker Server",
+      "description": "Backend for the web app for tracking placement activities.",
+      "url": "https://github.com/Ashrockzzz2003/placement_tracker_server",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["JavaScript", "Express", "MySQL"],
+      "is_internal": true
+    },
+    {
+      "id": "eebf63d1-c49e-4947-a67c-6ebed8288d6a",
+      "name": "EvOC runner_controller_microservice",
+      "description": "Microservice for controlling the execution of Evolutionary Algorithms.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/runner_controller_microservice",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Docker", "Go", "gRPC", "Cookies"],
+      "is_internal": true
+    },
+    {
+      "id": "7c6f8d03-c9f0-42ea-9ad4-28b7b3f4fb8b",
+      "name": "EvOC runner",
+      "description": "Component responsible for running the Evolutionary Algorithms.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/runner",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Python", "Docker", "RabbitMQ", "CockroachDB"],
+      "is_internal": true
+    },
+    {
+      "id": "fb3ab3af-b274-4909-95a7-ea65a2d7a627",
+      "name": "EvOC operations",
+      "description": "Repository for operational aspects and automation.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/operations",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Docker", "Ansible"],
+      "is_internal": true
+    },
+    {
+      "id": "fceda6cb-513f-4651-b615-d946b52c3413",
+      "name": "EvOC user_docs",
+      "description": "Documentation for users of the Evolutionary Algorithms platform.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/user_docs",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Markdown", "Vitepress"],
+      "is_internal": true
+    },
+    {
+      "id": "6541ed2e-2c36-45f8-aa1a-8d35bcf5e659",
+      "name": "EvOC dev_docs",
+      "description": "Documentation for developers contributing to the Evolutionary Algorithms platform.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/dev_docs",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Markdown", "Vitepress"],
+      "is_internal": true
+    },
+    {
+      "id": "b2dc5fa5-24b1-41e9-ad5f-78f331f554f5",
+      "name": "EvOC frontend",
+      "description": "Frontend for the Evolutionary Algorithms platform.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/evolve_frontend",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Next", "Gemini", "TailwindCSS", "Vercel"],
+      "is_internal": true
+    },
+    {
+      "id": "5a2c9a11-5387-4d0f-8550-ba61cadcd85f",
+      "name": "EvOC auth_microservice",
+      "description": "Microservice for handling authentication for the platform.",
+      "url": "https://github.com/Evolutionary-Algorithms-On-Click/auth_microservice",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Docker", "Go", "gRPC", "Cookies"],
+      "is_internal": true
+    },
+    {
+      "id": "269fb7fe-18dc-4e16-8106-80f7ccc779b8",
+      "name": "Quick Start Express",
+      "description": "A simple CLI tool to generate Express servers from multiple available templates.",
+      "url": "https://github.com/CSE-25/quick_start_express",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["JavaScript", "Vitepress", "Markdown"],
+      "is_internal": true
+    },
+    {
+      "id": "cfc6d5bc-a48f-4edc-afa9-ad5862b91eec",
+      "name": "Amrita PYQ",
+      "description": "The Amrita PYQ CLI Tool simplifies accessing previous year question papers.",
+      "url": "https://github.com/CSE-25/amrita_pyq",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Go", "Cobra"],
+      "is_internal": true
+    },
+    {
+      "id": "6cbb52f0-8287-4810-bff8-d041dfb03e48",
+      "name": "SLTS 2025",
+      "description": "Firebase powered app to view and analyze registrations and judge participants for SLTS-2025.",
+      "url": "https://github.com/Ashrockzzz2003/slts-2024",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Firebase", "Next", "TailwindCSS", "Javascript", "Python"],
+      "is_internal": true
+    },
+    {
+      "id": "2ad8933e-151a-467f-b1a0-36700ef56dd8",
+      "name": "Vault 007 v2.0",
+      "description": "Flutter Mobile app to manage and remember passwords.",
+      "url": "https://github.com/Ashrockzzz2003/Vault_007",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Flutter", "Dart", "MUI"],
+      "is_internal": true
+    },
+    {
+      "id": "b074e1fa-02e0-408a-9e30-4e677703973e",
+      "name": "ANSAN v4.0",
+      "description": "Mobile app to detect glaucoma early, powered by Firebase.",
+      "url": "https://github.com/Ashrockzzz2003/ansan_v3",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Flutter", "Firebase", "Dart"],
+      "is_internal": true
+    },
+    {
+      "id": "50e9b6c7-894f-4004-8c70-eb7d0bb49008",
+      "name": "Anokha 2025 Event Proposals Management App",
+      "description": "A platform for submitting, reviewing, and managing event proposals for Anokha 2025.",
+      "url": "https://github.com/SudharsanSaravanan/event-proposal-app",
+      "maintainers": ["Ashrockzzz2003"],
+      "tags": ["Firebase", "Next", "JavaScript", "TailwindCSS"],
+      "is_internal": true
+    },
+    {
+      "id": "5b0069f5-e351-43d8-91fe-5ad5911a3cc1",
+      "name": "File-Sharing App",
+      "description": "Seamless encrypted file-sharing tool.",
+      "url": "https://github.com/karthik-saiharsh/file-sharing-app",
+      "maintainers": ["karthik-saiharsh"],
+      "tags": ["Next", "TypeScript", "TailwindCSS"],
+      "is_internal": true
+    },
+    {
+      "id": "15273a84-d690-4670-b4df-b4649038d0ff",
+      "name": "Hangman-Game",
+      "description": "Simple Hangman-Game made with JavaScript and Django",
+      "url": "https://github.com/BIJJUDAMA/Hangman-Game",
+      "maintainers": ["BIJJUDAMA"],
+      "tags": ["HTML", "CSS", "Django"],
+      "is_internal": true
+    },
+    {
+      "id": "d23b9ae1-bc75-45b1-92e5-109d384c5045",
+      "name": "Project Rainstorm : Peer",
+      "description": "Peer application for a bit-torrent clone written in Golang implementing peer-to-peer file sharing platform over QUIC connections.",
+      "url": "https://github.com/aadit-n3rdy/rainstorm_peer",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Go", "Docker"],
+      "is_internal": true
+    },
+    {
+      "id": "a6edeaa6-4b06-4933-acb0-2720dee5d7b7",
+      "name": "Project Rainstorm : Tracker",
+      "description": "Tracker application for a bit-torrent clone written in Golang implementing peer-to-peer file sharing platform over QUIC connections.",
+      "url": "https://github.com/aadit-n3rdy/rainstorm_tracker",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Go", "Docker"],
+      "is_internal": true
+    },
+    {
+      "id": "ecb27583-57f3-45c4-b340-2ee02c75dd24",
+      "name": "Project Rainstorm : Common",
+      "description": "Common utilities for a bit-torrent clone written in Golang implementing peer-to-peer file sharing platform over QUIC connections.",
+      "url": "https://github.com/aadit-n3rdy/rainstorm_common",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Go", "Docker"],
+      "is_internal": true
+    },
+    {
+      "id": "e53e30a9-a828-44fc-a67d-a942691a2d3e",
+      "name": "Dwarka Run: A Java Game Engine",
+      "description": "A game engine with an Entity Component System, written in Java that uses OpenGL for 2D rendering.",
+      "url": "https://github.com/aadit-n3rdy/DwarkaRun",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Java", "OpenGL"],
+      "is_internal": true
+    },
+    {
+      "id": "8b9fcad4-7f76-4e57-99fd-1491ab9deefa",
+      "name": "Bay-6: Interpreter",
+      "description": "A BASIC-like interpreter written in Haskell",
+      "url": "https://github.com/aadit-n3rdy/bay6",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Haskell"],
+      "is_internal": true
+    },
+    {
+      "id": "cc3e37b7-f4ea-43f5-9024-f63020d27c22",
+      "name": "Smart Asteroids",
+      "description": "Asteroids, but if they evolved over time. A space to implement and test our evolutionary algorithms, in a fun intuitive way.",
+      "url": "https://github.com/aadit-n3rdy/smart_asteroids",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Python", "Numpy", "Pygame"],
+      "is_internal": true
+    },
+    {
+      "id": "fc7f6dff-3f97-42a2-833a-e5cb24ae93fd",
+      "name": "Phy6: A Physics Simulator",
+      "description": "An electrostatics simulation with the scope of expansion into other kinf of forces, better visualization techniques and improved logging.",
+      "url": "https://github.com/aadit-n3rdy/phy6",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["C++", "SDL2"],
+      "is_internal": true
+    },
+    {
+      "id": "45aa79a3-0561-46b1-9fc4-fe3df63b8245",
+      "name": "Gochaat: A Chat App in Go",
+      "description": "A very minimalistic repo as of now, primarily aiming to let people explore Golang. Scope of expansion into group chats, auth and verifying certificates with a \"no-external services\" policy.",
+      "url": "https://github.com/aadit-n3rdy/gochaat",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Go"],
+      "is_internal": true
+    },
+    {
+      "id": "0557b9f2-e1b6-496c-bee1-51ad884b3855",
+      "name": "Whodis: Keys, Values and Concurrency",
+      "description": "The cliched redis-clone of this edition with signification simplifications. It aims to let people explore Java with the scope for writing client libraries, docs, defining APIs, bloom-filters, etc.",
+      "url": "https://github.com/aadit-n3rdy/whodis-server",
+      "maintainers": ["aadit-n3rdy"],
+      "tags": ["Java"],
+      "is_internal": true
+    },
+    {
+      "id": "b1be13d9-412b-4d13-b24f-fa9364028d1d",
+      "name": "Load-Pulse: Load Testing Tool",
+      "description": "A CLI-based load testing tool that uses Raft. Follows microservice architecture with each service running in a contianer. Currently it only supports load-testing for HTTP but can be extended to support additional protocols and scaled using k8s instead of docker-compose.",
+      "url": "https://github.com/Naganathan05/Load-Pulse",
+      "maintainers": ["Naganathan05"],
+      "tags": ["Go", "Docker", "Redis", "RabbitMQ", "Cobra"],
+      "is_internal": true
+    },
+    {
+      "id": "f8478fa0-1e87-4efe-ae93-4159923a3488",
+      "name": "NodeGainsDB: Ligthweight In-Memory GraphDB",
+      "description": "A jacked Python graph DB with nodes and edges. Lift data with GymQL, spot connections, and flex your gains. Indexed for speed, stored in JSON, and terminal-run. Build your data muscles!",
+      "url": "https://github.com/Astrasv/NodeGainsDB",
+      "maintainers": ["Astrasv"],
+      "tags": ["Python"],
+      "is_internal": true
+    },
+    {
+      "id": "23856a64-c489-4cf9-8856-91aa0962f633",
+      "name": "Rubiks Cube Solver",
+      "description": "This project solves Rubik Cubes from a given state to goal state using BFS, IDDFS and IDA* search algorithms.",
+      "url": "https://github.com/Astrasv/CubeSolver",
+      "maintainers": ["Astrasv"],
+      "tags": ["Python"],
+      "is_internal": true
+    },
+    {
+      "id": "9566b01d-24f6-47fe-8d50-694075bd9c3c",
+      "name": "Notivos-AI",
+      "description": "A simple desktop note-taking application built using Electron.js. The application supports basic CRUD operations, sorting and searching, text-to-speech and a context-aware chatbot via Gemini",
+      "url": "https://github.com/adithya-menon-r/Notivos-AI",
+      "maintainers": ["adithya-menon-r"],
+      "tags": ["HTML", "CSS", "JavaScript", "Electron", "Gemini"],
+      "is_internal": true
+    },
+    {
+      "id": "350d0182-a688-40a9-93ad-26a5169ff3a2",
+      "name": "Gradia",
+      "description": "An AI-powered platform offering automated answer grading, coding test evaluation, and performance analytics. It uses RAG to ground grading in course materials and return context-aware feedback with citations.",
+      "url": "https://github.com/tokenomists/Gradia",
+      "maintainers": ["adithya-menon-r"],
+      "tags": [
+        "Next",
+        "TailwindCSS",
+        "Flask",
+        "Node",
+        "Express",
+        "MongoDB",
+        "GCP"
+      ],
+      "is_internal": true
+    },
+    {
+      "id": "944a88c0-f45a-4aa7-94f4-f37c5f2d784d",
+      "name": "Hex: The App Launcher",
+      "description": "A powerful global-search to boost your productivity on Windows and Linxu desktops. Search the web, control system settings, perform calculations and lots more.",
+      "url": "https://github.com/karthik-saiharsh/hex-launcher",
+      "maintainers": ["karthik-saiharsh", "Leela0o5"],
+      "tags": ["HTML", "CSS", "JavaScript", "Electron"],
+      "is_internal": true
+    },
+    {
+      "id": "255e5c47-3da2-4b89-97ec-39926f00af04",
+      "name": "CreDebt",
+      "description": "Maintain credits and debts between friends with CredDebt the Kotlin app powered with Jetpack Compose",
+      "url": "https://github.com/airyha/CreDebt",
+      "maintainers": ["airyha"],
+      "tags": ["Kotlin", "Android", "SQlite", "JetpackCompose"],
+      "is_internal": true
+    },
+    {
+      "id": "7e6d855e-c64f-4a19-84fe-7f64cdff7bcd",
+      "name": "Study Buddy",
+      "description": "An app for students to organize common study-spaces and ease details sharing.",
+      "url": "https://github.com/airyha/StudyBuddy",
+      "maintainers": ["airyha"],
+      "tags": ["Kotlin", "Android", "SQlite", "JetpackCompose"],
+      "is_internal": true
+    },
+    {
+      "id": "7f3924bd-9113-462a-87ea-78c0ebd6b937",
+      "name": "Vimposter (aka Typotamer)",
+      "description": "A vim-like text-editor built with Rust",
+      "url": "https://github.com/airyha/Typotamer",
+      "maintainers": ["airyha"],
+      "tags": ["Rust"],
+      "is_internal": true
+    },
+    {
+      "id": "253ccd9f-2e2e-4d46-a603-5bf462fb8c3f",
+      "name": "SkillUp",
+      "description": "An AI-driven platform that analyzes your resume against target job roles to pinpoint skill gaps and provides personalized learning resources, including curated courses, tutorials, and project ideas to boost your career readiness.",
+      "url": "https://github.com/Nithin0306/skillUp",
+      "maintainers": ["Nithin0306"],
+      "tags": ["React", "FastAPI", "JavaScript", "Python"],
+      "is_internal": true
+    },
+    {
+      "id": "a9396b8a-7904-45ca-8dab-48744f66ecb3",
+      "name": "Smart-Todo Application",
+      "description": "A project that uses modified heaps to help us complete our tasks effectively. Witness the brand new application developed using Rust and Tauri that can assist you in completing your tasks on time and keep you ahead of others.",
+      "url": "https://github.com/Thanus-Kumaar/Smart-Todo-Application",
+      "maintainers": ["Thanus-Kumaar"],
+      "tags": ["Rust", "Tauri", "React", "TailwindCSS", "JavaScript"],
+      "is_internal": true
+    },
+    {
+      "id": "3cea8a5e-5617-4daf-9d7b-9ed54f940978",
+      "name": "FC-TeamForge Application",
+      "description": "A project that uses modified heaps to help us complete our tasks effectively. Witness the brand new application developed using Rust and Tauri that can assist you in completing your tasks on time and keeps you ahead of others.",
+      "url": "https://github.com/TharunKumarrA/FC-TeamForge",
+      "maintainers": ["TharunKUmarrA"],
+      "tags": ["Vue", "JavaScript"],
+      "is_internal": true
+    },
+    {
+      "id": "a5a8e99f-c814-4682-92e0-6599e7d84da6",
+      "name": "FC-TeamForge Server",
+      "description": "Backend server that powers team creation, player management and all CRUD operations for FC-TeamForge Application. It is designed to ensure smooth, efficient, and balanced football team formation.",
+      "url": "https://github.com/Thanus-Kumaar/FC-TeamForge-server",
+      "maintainers": ["Thanus-Kumaar"],
+      "tags": ["Node", "Express", "JavaScript", "MySQL"],
+      "is_internal": true
+    },
+    {
+      "id": "67dbdaf7-8247-4f14-95b3-c1106623bb7e",
+      "name": "Flowgramming App",
+      "description": "A platform-independent graphical authoring tool which allows users to draw nad execute programs using flowcharts.",
+      "url": "https://github.com/flowgrammers-org/flowgramming",
+      "maintainers": ["Ashrockzzz2003", "ritwik-m"],
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "is_internal": true
+    },
+    {
+      "id": "c8057b2b-af0b-4033-8a58-a9d6a7edbc4a",
+      "name": "Flowgramming Docs",
+      "description": "Documentation for Flowgramming, the graphical authoring tool which allows users to draw and execute programs using flowcharts.",
+      "url": "https://github.com/flowgrammers-org/flowgramming-manual",
+      "maintainers": ["Ashrockzzz2003", "ritwik-m"],
+      "tags": ["Markdown"],
+      "is_internal": true
+    },
+    {
+      "id": "46a56a39-f675-44ab-aaf2-e918f2ceeeaf",
+      "name": "PANAM: Money Management App",
+      "description": "Supercharge your investment tracking with this secure, Google Sheets-powered portfolio manager. Visualize growth, analyze performance, and take control of your financial future—all within your private Google ecosystem.",
+      "url": "https://github.com/akshayxml/panam",
+      "maintainers": ["Ashrockzzz2003", "akshayxml"],
+      "tags": ["Typescript", "AppScripts"],
+      "is_internal": false
+    },
+    {
+      "id": "bee37bf7-077b-4400-bfa1-bb901ed38743",
+      "name": "Git-Automater",
+      "description": "A Rust-powered CLI tool that simplifies Git workflows by automating common version control tasks.",
+      "url": "https://github.com/ShyamSundhar1411/git-automater",
+      "maintainers": ["ShyamSundhar1411"],
+      "tags": ["Rust"],
+      "is_internal": false
+    },
+    {
+      "id": "df7988d8-1e10-48f7-bc09-c0686f2fce5d",
+      "name": "Structura-Py",
+      "description": "Structura is a CLI tool that automates folder structure generation and dependency management for Python projects.",
+      "url": "https://github.com/ShyamSundhar1411/structura-py",
+      "maintainers": ["ShyamSundhar1411"],
+      "tags": ["Python"],
+      "is_internal": false
+    },
+    {
+      "id": "5d861c75-d6fb-46cd-a0ad-eb1f1ccf48f4",
+      "name": "Structura-Go",
+      "description": "Structura is a CLI tool for automated folder structure generation and dependency management in Golang projects.",
+      "url": "https://github.com/ShyamSundhar1411/structura-go",
+      "maintainers": ["ShyamSundhar1411"],
+      "tags": ["Go", "Cobra"],
+      "is_internal": false
+    },
+    {
+      "id": "8feaf1f6-cfb8-499e-9032-29572d242004",
+      "name": "Macchia: Blob-Store",
+      "description": "Distributed blog-storage system implemented by connecting several storage nodes through RabbitMQ channels.",
+      "url": "https://github.com/Sheerabth/macchia",
+      "maintainers": ["SakethRamanKS", "Ashrockzzz2003"],
+      "tags": ["Python", "RabbitMQ"],
+      "is_internal": false
+    },
+    {
+      "id": "5f886152-cd8d-4e57-8ceb-23973c1b8ae1",
+      "name": "GlowBridge",
+      "description": "GlowBridge enables users to scan product barcodes to quickly access detailed nutritional information including the product name and NutriScore, powered by Open Food Facts. The app also features nutritionist booking, allowing users to schedule consulations with experts for personalized dietary guidance.",
+      "url": "https://github.com/nasacode1/GlowBridge",
+      "maintainers": ["nasacode1", "ShyamSundhar1411"],
+      "tags": ["Kotlin", "Android", "Firebase"],
+      "is_internal": false
+    },
+    {
+      "id": "4a25d2f8-1677-4eca-9af1-36f1a2254b79",
+      "name": "Automatic Train Booking System",
+      "description": "A project using selenium web-driver for automating the ticket booking workflow with payments based on date of journey, train, start and stop codes from the IRCTC website.",
+      "url": "https://github.com/aniket2909/train_booking_system",
+      "maintainers": ["aniket2909", "Ashrockzzz2003"],
+      "tags": ["Python", "Selenium"],
+      "is_internal": false
+    },
+    {
+      "id": "7d80836f-0e0e-475c-893f-0776d77a9cfa",
+      "name": "Hand Detector Application",
+      "description": "A neural network from scratch which detects normal stares and hand gestures at a laptop screen.",
+      "url": "https://github.com/aniket2909/Hand-Detector",
+      "maintainers": ["aniket2909", "Ashrockzzz2003"],
+      "tags": ["Python", "Matplotlib", "Numpy", "OpenCV"],
+      "is_internal": false
+    }
+  ]
+}
