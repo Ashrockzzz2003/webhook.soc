@@ -76,41 +76,43 @@ export default function Repositories() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black p-8 pb-24">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black p-4 sm:p-8 pb-24">
       <div className="max-w-4xl mx-auto">
-        <div className="flex-col justify-between items-center mb-8 space-y-4">
-          <h1 className="text-4xl font-bold text-white">Your SoC Projects</h1>
-          <p className="text-white/70 text-md">
+        <div className="flex-col justify-between items-center mb-6 sm:mb-8 space-y-3 sm:space-y-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white text-center sm:text-left">
+            Your SoC Projects
+          </h1>
+          <p className="text-white/70 text-sm sm:text-md text-center sm:text-left">
             {`This is a list of all the repositories you are a maintainer of.
             Select the repositories you want to configure webhooks for and click
             the "Configure Webhooks" button to configure the webhooks.`}
           </p>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/10 text-white rounded-full">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <div className="flex items-center gap-3 px-4 py-2 bg-white/10 text-white rounded-full w-full sm:w-auto justify-center">
               <img
                 src={session.user.image}
                 alt={session.user.name}
                 className="w-6 h-6 rounded-full"
               />
-              <span className="text-sm">{session.userName}</span>
+              <span className="text-sm truncate">{session.userName}</span>
             </div>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="text-white/70 hover:text-white text-sm underline"
+              className="text-white/70 hover:text-white text-sm underline w-full sm:w-auto text-center"
             >
               Sign Out
             </button>
           </div>
         </div>
 
-        <div className="mb-8 space-y-4">
+        <div className="mb-6 sm:mb-8 space-y-4">
           <div className="relative">
             <input
               type="text"
               placeholder="Search repositories..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 bg-white/10 text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full px-4 py-2 bg-white/10 text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500 text-sm sm:text-base"
             />
             {searchQuery && (
               <button
@@ -121,16 +123,16 @@ export default function Repositories() {
               </button>
             )}
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
             <button
               onClick={handleSelectAll}
-              className="px-4 py-2 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors"
+              className="px-4 py-2 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors text-sm sm:text-base w-full sm:w-auto"
             >
               Select All
             </button>
             <button
               onClick={handleClearSelection}
-              className="px-4 py-2 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors"
+              className="px-4 py-2 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors text-sm sm:text-base w-full sm:w-auto"
             >
               Clear Selection
             </button>
@@ -140,33 +142,35 @@ export default function Repositories() {
         {loading ? (
           <div className="text-white text-center">Loading repositories...</div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {filteredRepos.map((repo) => (
               <div
                 key={repo.id}
-                className="flex items-center justify-between p-4 bg-white/10 rounded-2xl hover:bg-white/15 transition-colors"
+                className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white/10 rounded-2xl hover:bg-white/15 transition-colors gap-3 sm:gap-4"
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
                   <input
                     type="checkbox"
                     checked={selectedRepos.has(repo.id)}
                     onChange={() => handleRepoSelect(repo.id)}
-                    className="w-5 h-5 rounded border-gray-300 text-yellow-500 focus:ring-yellow-500"
+                    className="w-5 h-5 rounded border-gray-300 text-yellow-500 focus:ring-yellow-500 mt-1 sm:mt-0"
                   />
-                  <div>
-                    <h3 className="text-white font-medium">{repo.name}</h3>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-medium text-sm sm:text-base truncate">
+                      {repo.name}
+                    </h3>
                     <a
                       href={repo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-400 text-sm"
+                      className="text-blue-400 text-xs sm:text-sm block truncate"
                     >
                       {repo.url}
                     </a>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-400 text-xs sm:text-sm mt-1 line-clamp-2">
                       {repo.description || "No description"}
                     </p>
-                    <div className="flex gap-2 mt-1">
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
                       {repo.tags.map((tag, index) => (
                         <span
                           key={index}
@@ -180,18 +184,24 @@ export default function Repositories() {
                 </div>
               </div>
             ))}
+
+            {filteredRepos.length === 0 && (
+              <div className="text-white text-center">
+                No repositories found.
+              </div>
+            )}
           </div>
         )}
       </div>
 
       {selectedRepos.size > 0 && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2">
+        <div className="fixed bottom-4 sm:bottom-8 left-4 sm:left-1/2 right-4 sm:right-auto sm:-translate-x-1/2">
           <button
             onClick={handleConfigureWebhooks}
-            className="px-8 py-4 bg-yellow-500 text-black rounded-full hover:bg-yellow-400 duration-200 shadow-lg hover:scale-105 transform transition-transform flex items-center gap-2"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-yellow-500 text-black rounded-full hover:bg-yellow-400 duration-200 shadow-lg hover:scale-105 transform transition-transform flex items-center justify-center gap-2 text-sm sm:text-base"
           >
             <span>Configure Webhooks</span>
-            <span className="bg-black/10 px-2 py-1 rounded-full text-sm">
+            <span className="bg-black/10 px-2 py-1 rounded-full text-xs sm:text-sm">
               {selectedRepos.size} selected
             </span>
           </button>

@@ -20,29 +20,31 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black">
-      <div className="flex flex-col items-center justify-center space-y-4 mb-12">
-        <h1 className="font-extrabold text-5xl tracking-tight sm:text-6xl md:text-7xl text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black px-4">
+      <div className="flex flex-col items-center justify-center space-y-4 mb-8 sm:mb-12">
+        <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white text-center">
           Amrita
         </h1>
-        <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-yellow-300">
+        <h1 className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-yellow-300 text-center">
           Summer of Code 2025
         </h1>
-        <p className="text-white text-center text-sm md:text-lg w-[450px] bg-white/10 rounded-3xl p-4">
+        <p className="text-white text-center text-sm sm:text-base md:text-lg w-full max-w-[450px] bg-white/10 rounded-3xl p-4">
           {session
             ? "Welcome back! Configure your webhooks to sync your repo with SoC."
             : "Sign in with GitHub to get started with configuring webhooks to sync your repo with SoC."}
         </p>
       </div>
       {session ? (
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center gap-3 px-8 py-4 bg-white/10 text-white rounded-full">
+        <div className="flex flex-col items-center gap-4 w-full max-w-sm">
+          <div className="flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 text-white rounded-full w-full justify-center">
             <img
               src={session.user.image}
               alt={session.user.name}
               className="w-8 h-8 rounded-full"
             />
-            <span>{session.user.name}</span>
+            <span className="text-sm sm:text-base truncate">
+              {session.user.name}
+            </span>
           </div>
           <div className="flex gap-4">
             <button
@@ -62,10 +64,10 @@ export default function Home() {
       ) : (
         <button
           onClick={handleSignIn}
-          className="flex items-center gap-3 px-8 py-4 bg-white/90 text-black rounded-full hover:bg-white duration-200 shadow-lg hover:scale-105 transform transition-transform"
+          className="flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/90 text-black rounded-full hover:bg-white duration-200 shadow-lg hover:scale-105 transform transition-transform w-full max-w-sm justify-center"
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5 sm:w-6 sm:h-6"
             fill="currentColor"
             viewBox="0 0 24 24"
             aria-hidden="true"

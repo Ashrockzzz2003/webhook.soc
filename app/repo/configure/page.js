@@ -98,32 +98,36 @@ function ConfigureWebhooksContent() {
   const status = webhookStatus[currentRepo?.id];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold text-white">Configure Webhooks</h1>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/10 text-white rounded-full">
-              <img
-                src={session.user.image}
-                alt={session.user.name}
-                className="w-6 h-6 rounded-full"
-              />
-              <span className="text-sm">{session.userName}</span>
-            </div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black p-4 sm:p-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-4">
+          <h1 className="text-2xl sm:text-4xl font-bold text-white text-center sm:text-left">
+            Configure Webhooks
+          </h1>
+          <div className="flex items-center gap-3 px-3 sm:px-4 py-2 bg-white/10 text-white rounded-full self-center sm:self-auto w-fit mx-auto sm:mx-0">
+            <img
+              src={session.user.image}
+              alt={session.user.name}
+              className="w-6 h-6 rounded-full"
+            />
+            <span className="text-xs sm:text-sm truncate max-w-[100px]">
+              {session.userName}
+            </span>
           </div>
         </div>
 
-        <div className="space-y-8">
-          <div className="bg-white/10 rounded-2xl p-6">
-            <div className="flex justify-between items-start mb-4">
+        <div className="space-y-6 sm:space-y-8">
+          <div className="bg-white/10 rounded-2xl p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 gap-2 sm:gap-0">
               <div>
-                <h2 className="text-2xl font-semibold text-white mb-2">
+                <h2 className="text-lg sm:text-2xl font-semibold text-white mb-1 sm:mb-2 break-words">
                   {currentRepo.name}
                 </h2>
-                <p className="text-gray-400">{currentRepo.description}</p>
+                <p className="text-gray-400 text-sm sm:text-base break-words">
+                  {currentRepo.description}
+                </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 sm:mt-0">
                 {currentRepo.tags.map((tag, index) => (
                   <span
                     key={index}
@@ -135,16 +139,16 @@ function ConfigureWebhooksContent() {
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
               {status ? (
                 <div
-                  className={`p-4 rounded-lg ${status.success ? "bg-green-500/20" : "bg-red-500/20"}`}
+                  className={`p-3 sm:p-4 rounded-lg ${status.success ? "bg-green-500/20" : "bg-red-500/20"}`}
                 >
                   <div className="flex items-center gap-2">
                     {status.success ? (
                       <>
                         <svg
-                          className="w-6 h-6 text-green-500"
+                          className="w-5 h-5 sm:w-6 sm:h-6 text-green-500"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -156,14 +160,14 @@ function ConfigureWebhooksContent() {
                             d="M5 13l4 4L19 7"
                           />
                         </svg>
-                        <span className="text-green-500">
+                        <span className="text-green-500 text-sm sm:text-base">
                           Webhook configured successfully!
                         </span>
                       </>
                     ) : (
                       <>
                         <svg
-                          className="w-6 h-6 text-red-500"
+                          className="w-5 h-5 sm:w-6 sm:h-6 text-red-500"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -175,7 +179,7 @@ function ConfigureWebhooksContent() {
                             d="M6 18L18 6M6 6l12 12"
                           />
                         </svg>
-                        <span className="text-red-500">
+                        <span className="text-red-500 text-sm sm:text-base">
                           Failed to configure webhook: {status.error}
                         </span>
                       </>
@@ -185,7 +189,7 @@ function ConfigureWebhooksContent() {
               ) : (
                 <button
                   onClick={() => handleConfigureWebhook(currentRepo)}
-                  className="w-full px-6 py-3 bg-yellow-500 text-black rounded-xl hover:bg-yellow-400 duration-200"
+                  className="w-full px-4 sm:px-6 py-3 bg-yellow-500 text-black rounded-xl hover:bg-yellow-400 duration-200 text-sm sm:text-base"
                 >
                   Configure Webhook
                 </button>
@@ -193,13 +197,13 @@ function ConfigureWebhooksContent() {
             </div>
           </div>
 
-          <div className="flex justify-between items-center">
-            <span className="text-white">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+            <span className="text-white text-sm sm:text-base">
               Repository {currentRepoIndex + 1} of {selectedRepos.length}
             </span>
             <button
               onClick={handleNext}
-              className="px-6 py-3 bg-white/10 text-white rounded-xl hover:bg-white/20 duration-200"
+              className="w-full sm:w-auto px-4 sm:px-6 py-3 bg-white/10 text-white rounded-xl hover:bg-white/20 duration-200 text-sm sm:text-base"
             >
               {currentRepoIndex < selectedRepos.length - 1
                 ? "Next Repository"

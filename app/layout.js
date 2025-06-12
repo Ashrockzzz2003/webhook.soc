@@ -116,7 +116,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={gilroy.className}>
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </head>
+      <body className={`${gilroy.className} antialiased`}>
         <ClientSessionWrapper>{children}</ClientSessionWrapper>
       </body>
     </html>
