@@ -2,7 +2,6 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
-import reposData from "../_util/data/repos.json";
 import { useRouter } from "next/navigation";
 
 export default function Repositories() {
@@ -16,13 +15,24 @@ export default function Repositories() {
 
   useEffect(() => {
     if (session) {
-      // Filter projects where user is a maintainer
-      const userRepos = reposData.projects.filter((project) =>
-        project.maintainers.includes(session.userName),
-      );
-      setRepos(userRepos);
-      setFilteredRepos(userRepos);
-      setLoading(false);
+      const getRepos = async () => {
+        try {
+          const response = await fetch(
+            "https://amritotsavam.cb.amrita.edu/api/v1/projects",
+          );
+          const data = await response.json();
+          const userRepos = data.projects.filter((project) =>
+            project.maintainers.includes(session.userName),
+          );
+          setRepos(userRepos);
+          setFilteredRepos(userRepos);
+        } catch (err) {
+          console.log(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      getRepos();
     }
   }, [session]);
 
