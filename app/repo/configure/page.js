@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import reposData from "../../_util/data/repos.json";
 
 function ConfigureWebhooksContent() {
   const { data: session } = useSession();
@@ -16,12 +15,25 @@ function ConfigureWebhooksContent() {
 
   useEffect(() => {
     if (session) {
-      const repoIds = searchParams.get("repos")?.split(",") || [];
-      const repos = reposData.projects.filter((repo) =>
-        repoIds.includes(repo.id),
-      );
-      setSelectedRepos(repos);
-      setLoading(false);
+      const getRepos = async () => {
+        setLoading(true);
+        try {
+          const response = await fetch(
+            "https://amritotsavam.cb.amrita.edu/api/v1/projects",
+          );
+          const data = await response.json();
+          const repoIds = searchParams.get("repos")?.split(",") || [];
+          const repos = data.projects.filter((repo) =>
+            repoIds.includes(repo.id),
+          );
+          setSelectedRepos(repos);
+        } catch (err) {
+          console.log(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      getRepos();
     }
   }, [session, searchParams]);
 
@@ -42,7 +54,7 @@ function ConfigureWebhooksContent() {
             active: true,
             events: ["pull_request", "issue_comment"],
             config: {
-              url: "https://example.com/webhook",
+              url: "https://amritotsavam.cb.amrita.edu/webhook",
               content_type: "json",
               insecure_ssl: "0",
             },
