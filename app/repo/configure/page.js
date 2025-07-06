@@ -52,7 +52,7 @@ function ConfigureWebhooksContent() {
           body: JSON.stringify({
             name: "web",
             active: true,
-            events: ["pull_request", "issue_comment"],
+            events: ["pull_request.edited", "pull_request.closed", "issues.labeled", "issues.unlabeled", "issues.assigned", "issues.unassigned", "issue_comment.created", "ping"],
             config: {
               url: "https://amritotsavam.cb.amrita.edu/webhook",
               content_type: "json",
