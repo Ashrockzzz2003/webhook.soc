@@ -54,7 +54,7 @@ function ConfigureWebhooksContent() {
             active: true,
             events: ["pull_request", "issues", "issue_comment", "ping"],
             config: {
-              url: "https://amritotsavam.cb.amrita.edu/webhook",
+              url: "https://amritotsavam.cb.amrita.edu/api/webhook",
               content_type: "json",
               insecure_ssl: "0",
             },
