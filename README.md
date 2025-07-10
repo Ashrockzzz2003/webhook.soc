@@ -1,67 +1,132 @@
 # Setup Webhooks
 
-This app configures webhooks to sync the repositories of maintainers of Amrita Summer Of Code to track the progress through `amsoc.vercel.app`.
+This web application enables maintainers of Amrita Summer of Code (ASoC) 2025 projects to easily configure GitHub webhooks for their repositories. The app automatically syncs repository activity to `amritotsavam.cb.amrita.edu` to track project progress throughout the Summer of Code program.
+
+## Features
+
+-   **GitHub OAuth Authentication**: Secure sign-in with GitHub credentials
+-   **Project Repository Discovery**: Automatically fetches ASoC projects you maintain
+-   **Batch Webhook Configuration**: Select and configure webhooks for multiple repositories at once
+-   **Real-time Progress Tracking**: Monitors pull requests, issues, and comments
+-   **Responsive Design**: Works seamlessly across desktop and mobile devices
 
 ## Tech Stack
 
-- Next.js 15.3.3
-- React 19
-- NextAuth.js
-- TypeScript
-- TailwindCSS
+-   **Frontend**: Next.js 15.3.3 with React 19.0.0
+-   **Authentication**: NextAuth.js v4.24.10
+-   **Styling**: TailwindCSS v4 with PostCSS
+-   **Language**: TypeScript 5.8.3
+-   **Development**: ESLint for code quality
 
 ## Getting Started
 
-1. Install dependencies:
+### Prerequisites
+
+-   Node.js (18+ recommended)
+-   npm or yarn
+-   GitHub account with maintainer access to ASoC repositories
+
+### Installation
+
+1. **Clone the repository**:
+
+```bash
+git clone <repository-url>
+cd setup-webhooks
+```
+
+2. **Install dependencies**:
 
 ```bash
 npm install
 ```
 
-2. Create a `.env` file in the root directory with the following variables:
+3. **Configure environment variables**:
+
+Create a `.env` file in the root directory:
 
 ```env
-# GitHub OAuth
+# GitHub OAuth Application
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
 
-# NextAuth
+# NextAuth Configuration
 NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
 ```
 
-To get your GitHub OAuth credentials:
+### GitHub OAuth Setup
 
-1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
+1. Navigate to [GitHub Developer Settings](https://github.com/settings/developers)
 2. Click "New OAuth App"
-3. Fill in the following details:
-   - Application name: "Amrita SoC Webhooks" (or your preferred name)
-   - Homepage URL: `http://localhost:3000`
-   - Authorization callback URL: `http://localhost:3000/api/auth/callback/github`
-4. Click "Register application"
-5. Copy the Client ID and generate a new Client Secret
+3. Configure the application:
+    - **Application name**: "ASoC Webhook Setup" (or preferred name)
+    - **Homepage URL**: `http://localhost:3000`
+    - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
+4. Register the application and copy the credentials
 
-For more details, see [GitHub's OAuth App documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
+For detailed guidance, see [GitHub's OAuth documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app).
 
-3. Run the development server:
+### Development
+
+1. **Start the development server**:
 
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+2. **Open your browser**: Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Available Scripts
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build the application for production
-- `npm run start` - Start the production server
-- `npm run lint` - Run ESLint for code linting
+-   `npm run dev` - Start development server with Turbopack
+-   `npm run build` - Build the application for production
+-   `npm run start` - Start the production server
+-   `npm run lint` - Run ESLint for code linting
+
+## How It Works
+
+1. **Authentication**: Users sign in with their GitHub account
+2. **Project Discovery**: The app fetches ASoC projects from the Amrita API where the user is listed as a maintainer
+3. **Repository Selection**: Users can search, filter, and select repositories for webhook configuration
+4. **Webhook Setup**: The app configures webhooks to monitor:
+    - Pull requests
+    - Issues and issue comments
+    - Repository activity (ping events)
 
 ## Project Structure
 
-- `/app` - Main application code
-  - `/api` - API routes
-  - `/repo` - Repository-related components
-  - `/_util` - Utility functions
-  - `/_fonts` - Font files
-- `/public` - Static assets
+```
+/app
+├── /api
+│   └── /auth/[...nextauth]/   # NextAuth.js configuration
+├── /repo                      # Repository management pages
+│   ├── page.js               # Repository listing and selection
+│   └── /configure            # Webhook configuration
+├── /_util                     # Utility functions and components
+├── /_fonts                    # Custom Gilroy font family
+├── config.js                  # API endpoints and webhook settings
+├── layout.js                  # Root layout component
+└── page.js                    # Landing page with authentication
+
+/public                        # Static assets and icons
+```
+
+## API Integration
+
+The application connects to the Amrita Summer of Code API:
+
+-   **Projects Endpoint**: `https://amritotsavam.cb.amrita.edu/api/v1/projects`
+-   **Webhook Endpoint**: `https://amritotsavam.cb.amrita.edu/api/webhook`
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## License
+
+This project is part of the Amrita Summer of Code 2025 initiative.
