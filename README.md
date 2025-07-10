@@ -1,6 +1,6 @@
 # Setup Webhooks
 
-This web application enables maintainers of Amrita Summer of Code (ASoC) 2025 projects to easily configure GitHub webhooks for their repositories. The app automatically configures webhooks for your repos to sync repository activity to track project progress throughout the Summer of Code program.
+This web app enables maintainers of [Amrita Summer of Code - ASoC 2025](https://amsoc.vercel.app) projects to easily configure GitHub webhooks for their repositories to sync repository activity to track project progress throughout the Summer of Code program.
 
 ## Features
 
@@ -21,7 +21,7 @@ This web application enables maintainers of Amrita Summer of Code (ASoC) 2025 pr
 
 ### Prerequisites
 
--   Node.js (18+ recommended)
+-   Node.js (21+ recommended)
 -   npm or yarn
 -   GitHub account with maintainer access to ASoC repositories
 
