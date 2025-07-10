@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import config from "../../config.js";
 
 function ConfigureWebhooksContent() {
   const { data: session } = useSession();
@@ -19,7 +20,7 @@ function ConfigureWebhooksContent() {
         setLoading(true);
         try {
           const response = await fetch(
-            "https://amritotsavam.cb.amrita.edu/api/v1/projects",
+            config.api.projectsUrl,
           );
           const data = await response.json();
           const repoIds = searchParams.get("repos")?.split(",") || [];
@@ -37,43 +38,143 @@ function ConfigureWebhooksContent() {
     }
   }, [session, searchParams]);
 
-  const handleConfigureWebhook = async (repo) => {
-    try {
-      // TODO: Replace with actual GitHub API call
-      const response = await fetch(
-        `https://api.github.com/repos/${session.userName}/${repo.url.split("/").slice(-2)[1]}/hooks`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${session.accessToken}`,
-            Accept: "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-          body: JSON.stringify({
-            name: "web",
-            active: true,
-            events: ["pull_request", "issues", "issue_comment", "ping"],
-            config: {
-              url: "https://amritotsavam.cb.amrita.edu/api/webhook",
-              content_type: "json",
-              insecure_ssl: "0",
-            },
-          }),
+  const listWebhooks = async (repo) => {
+    const response = await fetch(
+      `https://api.github.com/repos/${repo.url.split("/").slice(-2)[0]}/${repo.url.split("/").slice(-2)[1]}/hooks`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${session.accessToken}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": config.github.apiVersion,
         },
-      );
+      },
+    );
 
-      if (!response.ok) {
-        throw new Error(`Failed to configure webhook: ${response.statusText}`);
-      }
+    if (!response.ok) {
+      throw new Error(`Failed to list webhooks: ${response.statusText}`);
+    }
 
+    return await response.json();
+  };
+
+  const deleteWebhook = async (repo, hookId) => {
+    const response = await fetch(
+      `https://api.github.com/repos/${repo.url.split("/").slice(-2)[0]}/${repo.url.split("/").slice(-2)[1]}/hooks/${hookId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${session.accessToken}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": config.github.apiVersion,
+        },
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to delete webhook: ${response.statusText}`);
+    }
+  };
+
+  const createWebhook = async (repo) => {
+    const response = await fetch(
+      `https://api.github.com/repos/${repo.url.split("/").slice(-2)[0]}/${repo.url.split("/").slice(-2)[1]}/hooks`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${session.accessToken}`,
+          Accept: "application/vnd.github+json",
+          "X-GitHub-Api-Version": config.github.apiVersion,
+        },
+        body: JSON.stringify({
+          name: "web",
+          active: config.webhook.active,
+          events: config.webhook.events,
+          config: {
+            url: config.api.webhookUrl,
+            content_type: config.webhook.contentType,
+            insecure_ssl: config.webhook.insecureSSL,
+          },
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to create webhook: ${response.statusText}`);
+    }
+
+    return await response.json();
+  };
+
+  const extractDomain = (url) => {
+    try {
+      return new URL(url).hostname;
+    } catch {
+      return null;
+    }
+  };
+
+  const handleConfigureWebhook = async (repo) => {
+    const webhookUrl = config.api.webhookUrl;
+    const targetDomain = extractDomain(webhookUrl);
+
+    try {
+      // Set loading state
       setWebhookStatus((prev) => ({
         ...prev,
-        [repo.id]: { success: true },
+        [repo.id]: { loading: true, message: "Checking existing webhooks..." },
       }));
+
+      // Step 1: List existing webhooks
+      const existingWebhooks = await listWebhooks(repo);
+
+      // Step 2: Find all webhooks that match our domain
+      const matchingWebhooks = existingWebhooks.filter(
+        (hook) => hook.config?.url && extractDomain(hook.config.url) === targetDomain
+      );
+
+      if (matchingWebhooks.length > 0) {
+        setWebhookStatus((prev) => ({
+          ...prev,
+          [repo.id]: {
+            loading: true,
+            message: `Found ${matchingWebhooks.length} existing webhook(s) for domain. Deleting...`
+          },
+        }));
+
+        // Delete all matching webhooks
+        for (const webhook of matchingWebhooks) {
+          await deleteWebhook(repo, webhook.id);
+        }
+      }
+
+      // Step 3: Create new webhook
+      setWebhookStatus((prev) => ({
+        ...prev,
+        [repo.id]: { loading: true, message: "Creating new webhook..." },
+      }));
+
+      await createWebhook(repo);
+
+      // Success
+      setWebhookStatus((prev) => ({
+        ...prev,
+        [repo.id]: {
+          success: true,
+          message: matchingWebhooks.length > 0
+            ? `Replaced ${matchingWebhooks.length} existing webhook(s) successfully!`
+            : "Webhook configured successfully!"
+        },
+      }));
+
     } catch (error) {
       setWebhookStatus((prev) => ({
         ...prev,
-        [repo.id]: { success: false, error: error.message },
+        [repo.id]: {
+          success: false,
+          error: error.message,
+          message: "Failed to configure webhook"
+        },
       }));
     }
   };
@@ -154,10 +255,40 @@ function ConfigureWebhooksContent() {
             <div className="mt-4 sm:mt-6">
               {status ? (
                 <div
-                  className={`p-3 sm:p-4 rounded-lg ${status.success ? "bg-green-500/20" : "bg-red-500/20"}`}
+                  className={`p-3 sm:p-4 rounded-lg ${status.loading
+                    ? "bg-blue-500/20"
+                    : status.success
+                      ? "bg-green-500/20"
+                      : "bg-red-500/20"
+                    }`}
                 >
                   <div className="flex items-center gap-2">
-                    {status.success ? (
+                    {status.loading ? (
+                      <>
+                        <svg
+                          className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 animate-spin"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        <span className="text-blue-500 text-sm sm:text-base">
+                          {status.message}
+                        </span>
+                      </>
+                    ) : status.success ? (
                       <>
                         <svg
                           className="w-5 h-5 sm:w-6 sm:h-6 text-green-500"
@@ -173,7 +304,7 @@ function ConfigureWebhooksContent() {
                           />
                         </svg>
                         <span className="text-green-500 text-sm sm:text-base">
-                          Webhook configured successfully!
+                          {status.message}
                         </span>
                       </>
                     ) : (
@@ -192,7 +323,7 @@ function ConfigureWebhooksContent() {
                           />
                         </svg>
                         <span className="text-red-500 text-sm sm:text-base">
-                          Failed to configure webhook: {status.error}
+                          {status.message}: {status.error}
                         </span>
                       </>
                     )}

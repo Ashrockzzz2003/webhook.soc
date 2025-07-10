@@ -3,6 +3,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import config from "../config.js";
 
 export default function Repositories() {
   const { data: session } = useSession();
@@ -18,7 +19,7 @@ export default function Repositories() {
       const getRepos = async () => {
         try {
           const response = await fetch(
-            "https://amritotsavam.cb.amrita.edu/api/v1/projects",
+            config.api.projectsUrl,
           );
           const data = await response.json();
           const userRepos = data.projects.filter((project) =>
