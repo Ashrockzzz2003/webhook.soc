@@ -1,13 +1,12 @@
 # Setup Webhooks
 
-This web application enables maintainers of Amrita Summer of Code (ASoC) 2025 projects to easily configure GitHub webhooks for their repositories. The app automatically syncs repository activity to `amritotsavam.cb.amrita.edu` to track project progress throughout the Summer of Code program.
+This web application enables maintainers of Amrita Summer of Code (ASoC) 2025 projects to easily configure GitHub webhooks for their repositories. The app automatically configures webhooks for your repos to sync repository activity to track project progress throughout the Summer of Code program.
 
 ## Features
 
 -   **GitHub OAuth Authentication**: Secure sign-in with GitHub credentials
 -   **Project Repository Discovery**: Automatically fetches ASoC projects you maintain
 -   **Batch Webhook Configuration**: Select and configure webhooks for multiple repositories at once
--   **Real-time Progress Tracking**: Monitors pull requests, issues, and comments
 -   **Responsive Design**: Works seamlessly across desktop and mobile devices
 
 ## Tech Stack
@@ -111,13 +110,6 @@ npm run dev
 
 /public                        # Static assets and icons
 ```
-
-## API Integration
-
-The application connects to the Amrita Summer of Code API:
-
--   **Projects Endpoint**: `https://amritotsavam.cb.amrita.edu/api/v1/projects`
--   **Webhook Endpoint**: `https://amritotsavam.cb.amrita.edu/api/webhook`
 
 ## Contributing
 
